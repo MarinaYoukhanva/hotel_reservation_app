@@ -32,8 +32,10 @@ public class UserServiceImpl extends BaseServiceImpl<Long, User, UserRepository>
         try(Session session = SessionFactoryInstance.sessionFactory.openSession()){
             try{
                 session.beginTransaction();
-                getRepository().findByUsername(session, user.getUsername())
-                        .orElseThrow(UserExistsException::new);
+                Optional<User> foundUser =
+                getRepository().findByUsername(session, user.getUsername());
+                if (foundUser.isPresent())
+                    throw new UserExistsException();
                 getRepository().save(session, user);
                 session.getTransaction().commit();
             }catch (Exception e){

@@ -14,7 +14,7 @@ implements UserRepository {
     }
     public Optional<User> findByUsername (Session session, String username) {
         return session
-                .createQuery("SELECT User WHERE username =: username",
+                .createQuery("FROM User WHERE username =: username",
                         User.class)
                 .setParameter("username", username)
                 .uniqueResultOptional();

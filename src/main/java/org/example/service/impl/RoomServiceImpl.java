@@ -12,14 +12,11 @@ public class RoomServiceImpl extends BaseServiceImpl<Long, Room, RoomRepository>
     public RoomServiceImpl(RoomRepository repository) {
         super(repository);
     }
+    @Override
+    public void updateColumns(Room entity, Room foundEntity) {}
 
     @Override
-    public void updateColumns(Room entity, Room foundEntity) {
+    public void infoLogicCheck(Session session, Room entity) {}
 
-    }
 
-    @Override
-    public void infoLogicCheck(Session session, Room entity) {
-
-    }
 }
