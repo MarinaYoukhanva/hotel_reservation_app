@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface TicketRepository extends BaseRepository<Long, Ticket> {
 
-    List<Room> notAvailableRooms (Session session,
+    List<Room> availableRooms (Session session,
                                   LocalDate checkinDate, LocalDate checkoutDate);
 }

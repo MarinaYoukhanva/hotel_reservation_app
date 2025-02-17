@@ -35,9 +35,9 @@ public class Main {
         try (Session session = SessionFactoryInstance.sessionFactory.openSession()) {
             {
                 List<Room> rooms = ApplicationContext.getTicketRepository()
-                        .notAvailableRooms(session,
+                        .availableRooms(session,
                                 LocalDate.of(2025, 2, 14),
-                                LocalDate.of(2025, 2, 21));
+                                LocalDate.of(2025, 2, 17));
                 rooms.forEach(System.out::println);
             }
         }
